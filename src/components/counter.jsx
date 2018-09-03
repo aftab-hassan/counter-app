@@ -16,36 +16,48 @@ class Counter extends Component {
     // console.log("props == ", this.props);
 
     return (
-      <div>
-        {/* <img src={this.state.imageUrl} alt="" /> */}
-        {/* <span style={this.styles} className = {this.getBadgeClass()}>{this.formatCount()}</span> */}
-        {/* <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button> */}
-        {/* <ul>
-            { this.state.tags.map( tag => <li key={tag}>{tag}</li> ) }
-        </ul> */}
-        {/* <div>
-            {this.renderTags()}
-        </div> */}
+      <div className= "row">
+      
+        <div className = "col-1">
+          <span className={this.getBadgeClass()}>{this.formatCount()}</span>
+        </div>
 
-        {/* {this.props.children} */}
-        {/* <h4>{this.props.counter.notchildren}</h4> */}
-        <span className={this.getBadgeClass()}>{this.formatCount()}</span>
-        <button
-          // onClick={() => this.handleIncrement({ id: 1 })}
-          onClick = { () => this.props.onClickingIncrementFunctionToCall(this.props.counter)}
-          className="btn btn-secondary btn-sm"
-        >
-          Increment
-        </button>
-        {/* <button onClick = {this.props.counter.onClickingDeleteFunctionToCall} className = 'btn btn-danger btn-sm m-2'>Delete</button> */}
-        <button
-          onClick={() =>
-            this.props.onClickingDeleteFunctionToCall(this.props.counter.id)
-          }
-          className="btn btn-danger btn-sm m-2"
-        >
-          Delete
-        </button>
+        <div>
+          <button
+              // onClick={() => this.handleIncrement({ id: 1 })}
+              onClick = { () => this.props.onClickingIncrementFunctionToCall(this.props.counter)}
+              className="btn btn-secondary btn-sm m-4"
+            >
+              +
+          </button>
+          <button onClick = { () => this.props.onClickingDecrementFunctionToCall(this.props.counter)} 
+          className = "btn btn-secondary btn-sm m-2"
+          disabled = {this.props.counter.value === 0 ? 'disabled' : ''}
+          >
+            -
+          </button>
+          {/* <button onClick = {this.props.counter.onClickingDeleteFunctionToCall} className = 'btn btn-danger btn-sm m-2'>Delete</button> */}
+          <button
+            onClick={() =>
+              this.props.onClickingDeleteFunctionToCall(this.props.counter.id)
+            }
+            className="btn btn-danger btn-sm"
+          >
+            Delete
+          </button>
+        </div>
+          {/* <img src={this.state.imageUrl} alt="" /> */}
+          {/* <span style={this.styles} className = {this.getBadgeClass()}>{this.formatCount()}</span> */}
+          {/* <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button> */}
+          {/* <ul>
+              { this.state.tags.map( tag => <li key={tag}>{tag}</li> ) }
+          </ul> */}
+          {/* <div>
+              {this.renderTags()}
+          </div> */}
+
+          {/* {this.props.children} */}
+          {/* <h4>{this.props.counter.notchildren}</h4> */}
       </div>
     );
   }
